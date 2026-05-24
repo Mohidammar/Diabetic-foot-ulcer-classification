@@ -133,70 +133,7 @@ scikit-learn
 albumentations
 ```
 
-### Installation
-```bash
-git clone https://github.com/your-username/hybridvision-classifier.git
-cd hybridvision-classifier
-pip install -r requirements.txt
-```
 
-### Training
-```bash
-python train.py \
-  --data_dir ./data \
-  --backbone efficientnetv2 dinov2 \
-  --loss_alpha 0.4 \
-  --focal_gamma 2.0 \
-  --epochs 50 \
-  --batch_size 32
-```
-
-### Inference
-```bash
-python predict.py \
-  --checkpoint checkpoints/best_model.pt \
-  --image path/to/image.jpg
-```
-
----
-
-## 📁 Project Structure
-
-```
-hybridvision-classifier/
-├── models/
-│   ├── backbones.py        # EfficientNetV2 + DINOv2 wrappers
-│   ├── siamese.py          # Siamese network definition
-│   └── fusion.py           # Feature fusion module
-├── losses/
-│   ├── contrastive.py      # Contrastive loss
-│   ├── cb_focal.py         # Class-balanced focal loss
-│   └── combined.py         # Fused loss with alpha weighting
-├── data/
-│   ├── dataset.py          # Pair sampling & DataLoader
-│   └── augmentations.py    # Full augmentation pipeline
-├── classifier/
-│   └── xgb_head.py         # XGBoost training & inference
-├── train.py
-├── predict.py
-├── evaluate.py
-└── requirements.txt
-```
-
----
-
-## 📊 Results
-
-| Metric | Score |
-|---|---|
-| Accuracy | — |
-| Macro F1 | — |
-| AUC-ROC | — |
-| Balanced Accuracy | — |
-
-> Fill in after running your evaluation with `evaluate.py`.
-
----
 
 ## 📄 License
 
@@ -204,11 +141,3 @@ This project is licensed under the MIT License — see [`LICENSE`](LICENSE) for 
 
 ---
 
-## 🙏 Acknowledgements
-
-- [EfficientNetV2](https://arxiv.org/abs/2104.00298) — Tan & Le, 2021
-- [DINOv2](https://arxiv.org/abs/2304.07193) — Oquab et al., Meta AI, 2023
-- [Siamese Networks](https://www.cs.cmu.edu/~rsalakhu/papers/oneshot1.pdf) — Koch et al., 2015
-- [Class-Balanced Loss](https://arxiv.org/abs/1901.05555) — Cui et al., 2019
-- [Focal Loss](https://arxiv.org/abs/1708.02002) — Lin et al., 2017
-- [XGBoost](https://arxiv.org/abs/1603.02754) — Chen & Guestrin, 2016
